@@ -34,7 +34,6 @@ public class Uporabnik {
 	}
 
 	public void posljiProsnjo(Skupina sku) {
-
 	}
 
 	public static ArrayList<Vsebina> isci_multimedijo(String niz) {
