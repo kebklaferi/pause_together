@@ -15,10 +15,9 @@ public class Profil {
 
 	}
 
-	public Profil(String im, String pr, int st) {
+	public Profil(String im, String pr) {
 		this.ime = im;
 		this.priimek = pr;
-		this.starost = st;
 	}
 
 	public Profil() {

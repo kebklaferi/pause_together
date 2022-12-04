@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Seznam {
 	private String naziv;
 	private ArrayList<Vsebina> vsebine;
-	private Uporabnik ima_sezname;
 
 	public Seznam() {
 		vsebine = new ArrayList<>();
@@ -31,13 +30,6 @@ public class Seznam {
 		this.vsebine = vsebine;
 	}
 
-	public Uporabnik getIma_sezname() {
-		return ima_sezname;
-	}
-
-	public void setIma_sezname(Uporabnik ima_sezname) {
-		this.ima_sezname = ima_sezname;
-	}
 
 	public void dodajVsebino(Vsebina vseb){
 		vsebine.add(vseb);

@@ -7,30 +7,28 @@ public class Uporabnik {
 	private String email;
 	private String geslo;
 	private Profil ima_profil;
-	private ArrayList<Skupina> skupine;
-	private ArrayList<Prosnja> poslane_prosnje;
+	//private ArrayList<Skupina> skupine;
+	private ArrayList<Seznam> seznami;
+
+	/* private ArrayList<Prosnja> poslane_prosnje;
 	private ArrayList<Pogovor> sodeluje;
 	private ArrayList<Forum> ustvarjeni;
-	private ArrayList<Seznam> seznami;
-	private ArrayList<Prosnja> prejete_prosnje;
+	private ArrayList<Prosnja> prejete_prosnje; */
 
 	public Uporabnik(){
-		skupine = new ArrayList<Skupina>();
-		poslane_prosnje = new ArrayList<Prosnja>();
-		sodeluje = new ArrayList<Pogovor>();
-		ustvarjeni = new ArrayList<Forum>();
+		//skupine = new ArrayList<Skupina>();
+		//poslane_prosnje = new ArrayList<Prosnja>();
+		//sodeluje = new ArrayList<Pogovor>();
+		//ustvarjeni = new ArrayList<Forum>();
 		seznami = new ArrayList<Seznam>();
-		prejete_prosnje = new ArrayList<>();
+		//prejete_prosnje = new ArrayList<>();
 	};
 	public Uporabnik(String username, String email, String geslo) {
 		this();
 		this.username = username;
 		this.email = email;
 		this.geslo = geslo;
-	}
-
-	public ArrayList<Skupina> vrniSkupine() {
-		return null;
+		this.ima_profil = new Profil(username, "");
 	}
 
 	public void posljiProsnjo(Skupina sku) {
@@ -55,8 +53,6 @@ public class Uporabnik {
 	public void dodajProsnjo(Prosnja pro) {
 
 	}
-
-
 
 	public String getUsername() {
 		return this.username;
