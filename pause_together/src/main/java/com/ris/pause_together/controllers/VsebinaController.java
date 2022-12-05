@@ -11,13 +11,7 @@ public class VsebinaController {
 
     @Autowired
     private VsebinaRepository vsebinaDao; //repository
-
-
-    @GetMapping("/hello")
-    public String hello(){
-        return "hello";
-    }
-
+    
     @GetMapping
     public Iterable<Vsebina> vrniVsebine(){
         return vsebinaDao.findAll();
