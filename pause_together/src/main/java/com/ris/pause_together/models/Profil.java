@@ -1,7 +1,15 @@
 package com.ris.pause_together.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "profili")
 public class Profil {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Long id;
 	private String ime;
 	private String priimek;
 	private int starost;
