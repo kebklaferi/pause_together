@@ -1,6 +1,18 @@
 package com.ris.pause_together.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+@Entity
 public class Vsebina {
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
 	private String naslov;
 	private String avtor;
 	private int leto_izdaje;
@@ -40,5 +52,13 @@ public class Vsebina {
 	}
 	public void setOcena(int ocena) {
 		this.ocena = ocena;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
