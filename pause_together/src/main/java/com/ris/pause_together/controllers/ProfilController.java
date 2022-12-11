@@ -12,6 +12,7 @@ public class ProfilController {
     private ProfilRepository profildao;
 
 
+    //implementacija zapisa get za vse profile
     @GetMapping
     public Iterable<Profil> vrniVseProfile(){
         return profildao.findAll();
