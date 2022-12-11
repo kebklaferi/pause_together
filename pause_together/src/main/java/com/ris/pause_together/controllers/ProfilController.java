@@ -11,12 +11,13 @@ public class ProfilController {
     @Autowired
     private ProfilRepository profildao;
 
-    //implementacija izpisa vseh zapisov
+
     @GetMapping
     public Iterable<Profil> vrniVseProfile(){
         return profildao.findAll();
     }
 
+    //implementacija zapisa po id
     @GetMapping("/profil/{id}")
     public Iterable<Profil> vrniProfilPoId(@PathVariable("id") int id){
         return profildao.vrniPoId(id);
