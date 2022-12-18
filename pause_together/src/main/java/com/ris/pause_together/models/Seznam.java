@@ -1,23 +1,61 @@
 package com.ris.pause_together.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 
 
+@Entity
+@Table(name = "Seznami")
 public class Seznam {
 
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
 	private Long id;
+	@Column(name = "naziv")
 	private String naziv;
 
+	//mappedBy mora bit enak temu
+	@ManyToOne
+	@JoinColumn(name = "uporabnik_id", insertable = false, updatable = false)
+	private Uporabnik uporabnik;
+
+	/*
+	@Column(name = "vsebine")
 	private ArrayList<Vsebina> vsebine;
 
-	public Seznam() {
-		vsebine = new ArrayList<>();
+	 */
+
+	public String getNaziv() {
+		return naziv;
 	}
+
+	public void setNaziv(String naziv) {
+		this.naziv = naziv;
+	}
+	public Seznam(){
+
+	};
+	public Seznam(String naz){
+		this.naziv = naz;
+	}
+
+	public Uporabnik getUporabnik() {
+		return uporabnik;
+	}
+
+	public void setUporabnik(Uporabnik uporabnik) {
+		this.uporabnik = uporabnik;
+	}
+//-------------------------------
+	/*
+	public Seznam() {
+
+	}
+
+
 	public Seznam(String naz) {
 		this();
 		this.naziv = naz;
@@ -43,4 +81,5 @@ public class Seznam {
 	public void dodajVsebino(Vsebina vseb){
 		vsebine.add(vseb);
 	}
+	*/
 }

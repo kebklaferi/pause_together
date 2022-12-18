@@ -12,14 +12,18 @@ import java.util.List;
 
 //CrudRepository<TIP, ID>; razred ponuja metode za delo z pb
 public interface ProfilRepository extends CrudRepository<Profil, Long> {
-    @Query("select p from Profil p where p.id = ?1")
+
+    @Query(value = "select p from Profili p where p.id = ?1", nativeQuery = true)
     List<Profil> vrniPoId(int id);
 
     @Transactional
     @Modifying
-    @Query(value = "update Profil p set p.ime = ?1 where p.id = ?2", nativeQuery = true)
+    @Query(value = "update Profili p set p.ime = ?1 where p.id = ?2", nativeQuery = true)
     int spremeniProfil(String novo, Integer id);
 
-    @Query("select p from Profil p where p.ime = ?1 and p.starost <= ?2")
+
+    @Query(value = "select p from Profili p where p.ime = ?1 and p.starost <= ?2", nativeQuery = true)
     List<Profil> poisciPoImeStarost(String ime, Integer starost);
+
+
 }

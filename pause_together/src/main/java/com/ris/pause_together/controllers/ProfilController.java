@@ -17,6 +17,8 @@ public class ProfilController {
     private ProfilRepository profildao;
     ObjectMapper objectMapper = new ObjectMapper();
 
+
+
     //implementacija zapisa get za vse profile
     @GetMapping
     public Iterable<Profil> vrniVseProfile(){
@@ -54,5 +56,7 @@ public class ProfilController {
     public Iterable<Profil> poisci(@RequestParam(name = "ime") String ime, @RequestParam("starost") Integer starost){
         return profildao.poisciPoImeStarost(ime, starost);
     }
+
+
 
 }

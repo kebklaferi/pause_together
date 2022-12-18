@@ -3,37 +3,54 @@ package com.ris.pause_together.models;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "uporabniki")
+@Table(name = "Uporabniki")
 public class Uporabnik {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Long id;
+
 	@Column(name = "username")
 	private String username;
-	@Column(name = "email")
-	private String email;
-	@Column(name = "geslo")
-	private String geslo;
 
-	//tisti, ki bo imel foreign key, bo imel annotation joincolumn
+	@Column
+	private String geslo;
+	@Column
+	private String email;
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "uporabnik_id")
+	private List<Seznam> seznami;
+
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "profil_id")
-	private Profil ima_profil;
+	private Profil profil;
+
+
+	public Uporabnik (){
+		this.seznami = new ArrayList<Seznam>();
+	}
+	public Uporabnik(String geslo, String email, String username, List<Seznam> polje) {
+		this.seznami = polje;
+		this.geslo = geslo;
+		this.email = email;
+		this.username = username;
+	}
 
 	//private ArrayList<Skupina> skupine;
-
-	//@OneToMany(mappedBy = "uporabnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//private ArrayList<Seznam> seznami;
 
 	/* private ArrayList<Prosnja> poslane_prosnje;
 	private ArrayList<Pogovor> sodeluje;
 	private ArrayList<Forum> ustvarjeni;
 	private ArrayList<Prosnja> prejete_prosnje; */
 
+	//---------------------------------------
+
+
+	/*
 	public Uporabnik(){
 		//skupine = new ArrayList<Skupina>();
 		//poslane_prosnje = new ArrayList<Prosnja>();
@@ -45,9 +62,47 @@ public class Uporabnik {
 	public Uporabnik(String username, String email, String geslo) {
 		this();
 		this.username = username;
-		this.email = email;
-		this.geslo = geslo;
+		this.mail = email;
+		this.password = geslo;
 		//this.ima_profil = new Profil(username, "");
+	}
+
+	 */
+
+	public List<Seznam> getSeznami() {
+		return seznami;
+	}
+
+	public void setSeznami(List<Seznam> seznami) {
+		this.seznami = seznami;
+	}
+
+	public Profil getIma_profil() {
+		return profil;
+	}
+
+	public void setIma_profil(Profil ima_profil) {
+		this.profil = ima_profil;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getGeslo() {
+		return geslo;
+	}
+
+	public void setGeslo(String geslo) {
+		this.geslo = geslo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void posljiProsnjo(Skupina sku) {
