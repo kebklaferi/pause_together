@@ -44,6 +44,7 @@ public class ProfilController {
         System.out.println(ime);
         return profildao.spremeniProfil(ime, id);
     }
+    //izbris profila by id
     @DeleteMapping("izbrisi/{id}")
     public void izbrisiProfil(@PathVariable("id") Long id){
         profildao.deleteById(id);
