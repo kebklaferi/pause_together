@@ -3,7 +3,7 @@ package com.ris.pause_together.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "profili")
+@Table(name = "Profil")
 public class Profil {
 
 	@Id
