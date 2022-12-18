@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import com.ris.pause_together.dao.ProfilRepository;
 import com.ris.pause_together.models.Profil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -43,4 +44,9 @@ public class ProfilController {
         System.out.println(ime);
         return profildao.spremeniProfil(ime, id);
     }
+    @DeleteMapping("izbrisi/{id}")
+    public void izbrisiProfil(@PathVariable("id") Long id){
+        profildao.deleteById(id);
+    }
+
 }
