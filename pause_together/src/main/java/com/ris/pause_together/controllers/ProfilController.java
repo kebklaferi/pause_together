@@ -23,7 +23,6 @@ public class ProfilController {
         return profildao.findAll();
     }
 
-
     //implementacija zapisa po id
     @GetMapping("/profil/{id}")
     public Iterable<Profil> vrniProfilPoId(@PathVariable("id") int id){
@@ -48,6 +47,12 @@ public class ProfilController {
     @DeleteMapping("izbrisi/{id}")
     public void izbrisiProfil(@PathVariable("id") Long id){
         profildao.deleteById(id);
+    }
+
+    //poisci profil kjer je ime in starost manjsa od podane
+    @GetMapping("poisci")
+    public Iterable<Profil> poisci(@RequestParam(name = "ime") String ime, @RequestParam("starost") Integer starost){
+        return profildao.poisciPoImeStarost(ime, starost);
     }
 
 }

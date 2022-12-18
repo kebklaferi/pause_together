@@ -23,6 +23,7 @@ public class Uporabnik {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "profil_id")
 	private Profil ima_profil;
+
 	//private ArrayList<Skupina> skupine;
 
 	//@OneToMany(mappedBy = "uporabnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

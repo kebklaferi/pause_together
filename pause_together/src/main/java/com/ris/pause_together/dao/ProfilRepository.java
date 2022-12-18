@@ -19,4 +19,7 @@ public interface ProfilRepository extends CrudRepository<Profil, Long> {
     @Modifying
     @Query(value = "update Profil p set p.ime = ?1 where p.id = ?2", nativeQuery = true)
     int spremeniProfil(String novo, Integer id);
+
+    @Query("select p from Profil p where p.ime = ?1 and p.starost <= ?2")
+    List<Profil> poisciPoImeStarost(String ime, Integer starost);
 }
