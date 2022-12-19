@@ -19,25 +19,25 @@ public class ProfilController {
 
 
 
-    //implementacija zapisa get za vse profile
+    //KLARA -implementacija zapisa get za vse profile
     @GetMapping
     public Iterable<Profil> vrniVseProfile(){
         return profildao.findAll();
     }
 
-    //implementacija zapisa po id
+    //KLARA - implementacija zapisa po id
     @GetMapping("/profil/{id}")
     public Iterable<Profil> vrniProfilPoId(@PathVariable("id") int id){
         return profildao.vrniPoId(id);
     }
 
-    //dodajanje zapisa
+    //KLARA -dodajanje zapisa
     @PostMapping
     public Profil dodajProfil(@RequestBody Profil profil){
         return profildao.save(profil);
     }
 
-    //spreminjanje imena v profilu - update query
+    //KLARA - spreminjanje imena v profilu - update query
     @PutMapping("/spremeni/{id}")
     public int spremeniProfil(@RequestBody String jsonObjekt, @PathVariable("id") Integer id) throws JsonProcessingException {
         JsonNode jsonNode = objectMapper.readTree(jsonObjekt);
@@ -45,13 +45,13 @@ public class ProfilController {
         System.out.println(ime);
         return profildao.spremeniProfil(ime, id);
     }
-    //izbris profila by id
+    //KLARA - izbris profila by id
     @DeleteMapping("izbrisi/{id}")
     public void izbrisiProfil(@PathVariable("id") Long id){
         profildao.deleteById(id);
     }
 
-    //poisci profil kjer je ime in starost manjsa od podane
+    //KLARA - poisci profil kjer je ime in starost manjsa od podane
     @GetMapping("poisci")
     public Iterable<Profil> poisci(@RequestParam(name = "ime") String ime, @RequestParam("starost") Integer starost){
         return profildao.poisciPoImeStarost(ime, starost);
