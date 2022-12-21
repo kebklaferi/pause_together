@@ -1,5 +1,6 @@
 package com.ris.pause_together.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -77,12 +78,12 @@ public class Uporabnik {
 		this.seznami = seznami;
 	}
 
-	public Profil getIma_profil() {
+	public Profil getProfil() {
 		return profil;
 	}
 
-	public void setIma_profil(Profil ima_profil) {
-		this.profil = ima_profil;
+	public void setProfil(Profil profil) {
+		this.profil = profil;
 	}
 
 	public void setUsername(String username) {

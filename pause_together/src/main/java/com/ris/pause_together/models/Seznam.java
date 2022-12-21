@@ -1,5 +1,7 @@
 package com.ris.pause_together.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 
@@ -20,6 +22,7 @@ public class Seznam {
 	//mappedBy mora bit enak temu
 	@ManyToOne
 	@JoinColumn(name = "uporabnik_id", insertable = false, updatable = false)
+	@JsonIgnore
 	private Uporabnik uporabnik;
 
 	/*

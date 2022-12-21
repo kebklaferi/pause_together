@@ -13,10 +13,16 @@ public class UporabnikController {
     @Autowired
     private UporabnikRepository uporabnikdao;
 
-    //KLARA
+
     @GetMapping
-    public Iterable<Uporabnik> vsiUporabniki(){
-        return uporabnikdao.findAll();
+    public Iterable<Uporabnik> vrniUporabnike(){
+        return uporabnikdao.vrniUporabnike();
+    }
+
+    //KLARA
+    @GetMapping("/usernames")
+    public Iterable<String> vsiUporabnikiUserName(){
+        return uporabnikdao.poisciVseUpoUN();
     }
 
     //KLARA
@@ -39,11 +45,11 @@ public class UporabnikController {
         return uporabnikdao.upoPoizvedbaA();
     }
 
-    /*
+    //vrne uporabnike, ki nimajo ustvarjenega seznama, email je null, geslo je manjse od 5
     @GetMapping("poizvedbaB")
     public Iterable<Uporabnik> upoPoizvedbaB(){
         return uporabnikdao.upoPoizvedbaB();
     }
 
-     */
+
 }

@@ -1,9 +1,11 @@
 package com.ris.pause_together.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Profili")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Profil {
 
 	@Id
