@@ -38,18 +38,23 @@ public class UporabnikController {
       uporabnikdao.deleteById(id);
     }
 
-    // KLARA - kompleksnejsa poizvedba s vsaj tremi parametri
+    // KLARA - kompleksnejsa poizvedba s vsaj tremi parametri (mysql)
     // vrne uporabnike, ki imajo ustvarjen vsaj en seznam, username manjsi od 10 crk ter, geslo daljse od 7
     @GetMapping("poizvedbaA")
     public Iterable<Uporabnik> upoPoizvedbaA(){
         return uporabnikdao.upoPoizvedbaA();
     }
 
+    //KLARA - kompleksnejsa poizvedba s vsaj tremi parametri (mysql)
     //vrne uporabnike, ki nimajo ustvarjenega seznama, email je null, geslo je manjse od 5
     @GetMapping("poizvedbaB")
     public Iterable<Uporabnik> upoPoizvedbaB(){
         return uporabnikdao.upoPoizvedbaB();
     }
 
+    /*
+    @GetMapping("poisci")
+    public Iterable<Uporabnik> upoParam(@RequestParam("ime_parametra")){return uporabnikdao.upoParam();}
+     */
 
 }

@@ -57,6 +57,11 @@ public class ProfilController {
         return profildao.poisciPoImeStarost(ime, starost);
     }
 
-
+    //KLARA - starejsi od podane letnice, dolzina imena vsaj ali vecja kot podana, priimek zacne na podano crko
+    @GetMapping("param")
+    public Iterable<Profil> poisci(@RequestParam("starost") Long starost, @RequestParam("d_ime") Long dolzina_ime, @RequestParam("zacetnica_priimek") String zacetnica_pri){
+        zacetnica_pri = zacetnica_pri + "%";
+        return profildao.paramPoizvedbaA(starost, dolzina_ime, zacetnica_pri);
+    }
 
 }

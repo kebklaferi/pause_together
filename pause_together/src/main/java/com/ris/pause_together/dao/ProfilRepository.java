@@ -25,5 +25,6 @@ public interface ProfilRepository extends CrudRepository<Profil, Long> {
     @Query(value = "select p from Profili p where p.ime = ?1 and p.starost <= ?2", nativeQuery = true)
     List<Profil> poisciPoImeStarost(String ime, Integer starost);
 
-
+    @Query(value = "select p.* from Profili p where p.starost >= ?1 and length(p.ime) >= ?2 and p.priimek like ?3", nativeQuery = true)
+    List<Profil> paramPoizvedbaA(Long starost, Long dolzina, String crka);
 }

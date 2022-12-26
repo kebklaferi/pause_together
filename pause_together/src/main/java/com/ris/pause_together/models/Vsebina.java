@@ -6,18 +6,31 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
+@Table(name = "vsebine")
 public class Vsebina {
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
 	private String naslov;
 	private String avtor;
 	private int leto_izdaje;
 	private int ocena;
 
+	@ManyToOne
+	@JoinColumn(name = "seznam_id")
+	@JsonIgnore
+	private Seznam seznam;
+
+	public Seznam getSeznam() {
+		return seznam;
+	}
+
+	public void setSeznam(Seznam seznam) {
+		this.seznam = seznam;
+	}
+
+	public Vsebina(){};
 	public Vsebina(String na, String av, int li) {
 		this.naslov = na;
 		this.avtor = av;
@@ -54,11 +67,4 @@ public class Vsebina {
 		this.ocena = ocena;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 }

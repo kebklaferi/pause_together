@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -21,15 +22,17 @@ public class Seznam {
 
 	//mappedBy mora bit enak temu
 	@ManyToOne
-	@JoinColumn(name = "uporabnik_id", insertable = false, updatable = false)
+	@JoinColumn(name = "uporabnik_id")
 	@JsonIgnore
 	private Uporabnik uporabnik;
 
-	/*
-	@Column(name = "vsebine")
-	private ArrayList<Vsebina> vsebine;
 
-	 */
+	@Column(name = "vsebine")
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "seznam_id")
+	private List<Vsebina> vsebine;
+
+
 
 	public String getNaziv() {
 		return naziv;
@@ -52,7 +55,16 @@ public class Seznam {
 	public void setUporabnik(Uporabnik uporabnik) {
 		this.uporabnik = uporabnik;
 	}
-//-------------------------------
+
+	public List<Vsebina> getVsebine() {
+		return vsebine;
+	}
+
+	public void setVsebine(ArrayList<Vsebina> vsebine) {
+		this.vsebine = vsebine;
+	}
+
+	//-------------------------------
 	/*
 	public Seznam() {
 
