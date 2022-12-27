@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -29,7 +30,6 @@ public class Uporabnik {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Profil profil;
-
 
 	public Uporabnik (){
 		this.seznami = new ArrayList<Seznam>();

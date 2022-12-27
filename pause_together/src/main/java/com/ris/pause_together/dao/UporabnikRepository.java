@@ -32,9 +32,14 @@ public interface UporabnikRepository extends CrudRepository<Uporabnik, Long> {
             "group by u.id;", nativeQuery = true)
     List<Uporabnik> upoPoizvedbaB();
 
- /*
-    @Query(value = "", nativeQuery = true)
-    List<Uporabnik> upoPoizvedbaB();
 
-     */
+    @Query(value = "select u.* from uporabniki u " +
+            "inner join profili p on p.id = u.profil_id " +
+            "inner join seznami s on u.id = s.uporabnik_id " +
+            "inner join vsebine v on v.seznam_id = s.id " +
+            "where p.starost >= ?1 " +
+            "group by u.id;", nativeQuery = true)
+    List<Uporabnik> upoTretjiSprint(Long leta);
+
+
 }

@@ -52,9 +52,9 @@ public class UporabnikController {
         return uporabnikdao.upoPoizvedbaB();
     }
 
-    /*
-    @GetMapping("poisci")
-    public Iterable<Uporabnik> upoParam(@RequestParam("ime_parametra")){return uporabnikdao.upoParam();}
-     */
-
+    //vrne uporabnike, ki so starejsi od x let, imajo seznam na katerem je vsaj 1 pesem
+    @GetMapping("tretjisprint")
+    public Iterable<Uporabnik> upoTretjiSprint(@RequestParam("leta") Long leta){
+        return uporabnikdao.upoTretjiSprint(leta);
+    }
 }
