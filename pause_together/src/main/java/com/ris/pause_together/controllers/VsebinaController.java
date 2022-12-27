@@ -21,4 +21,11 @@ public class VsebinaController {
     public Vsebina dodajVsebine(@RequestBody Vsebina vsebina){
         return vsebinaDao.save(vsebina);
     }
+
+    // KLARA - poizvedba po podanem letu izdaje, ocena vecja od podane, tocno dolocen avtor
+    @GetMapping("/param")
+    public Iterable<Vsebina> vrniPoParametrih(@RequestParam("avtor") String avtor, @RequestParam("leto_i") Long leto, @RequestParam("ocena") Long ocena){
+        return vsebinaDao.vrniPoParametrih(avtor, leto, ocena);
+    }
+
 }

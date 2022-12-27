@@ -20,4 +20,10 @@ public class SeznamController {
     public Iterable<Seznam> vrniVseSezname(){
         return seznamdao.findAll();
     }
+
+    //seznam, ki ima vsaj eno pesem
+    @GetMapping("/polni")
+    public Iterable<Seznam> vrniPolneSezname(){
+        return seznamdao.vrniPolneSezname();
+    }
 }
