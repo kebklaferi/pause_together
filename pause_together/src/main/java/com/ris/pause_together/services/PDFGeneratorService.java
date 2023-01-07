@@ -15,7 +15,7 @@ public class PDFGeneratorService {
             /*
             delo z itexpdf
             absolutna pot - ni idealno
-            Path pot = Path.of("D:\\Slike\\Cursed Cats\\hihi.jpg");
+            Path pot = Path.of("");
             Image img = Image.getInstance(pot.toAbsolutePath().toString());
             Document doc = new Document();
             PdfWriter.getInstance(doc, new FileOutputStream("dodanaslika.pdf"));
