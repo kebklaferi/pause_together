@@ -12,9 +12,13 @@ public class Profil {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Long id;
+	@Column
 	private String ime;
+	@Column
 	private String priimek;
+	@Column
 	private int starost;
+	@Column
 	private String slika;
 
 	public void spremeniSliko() {
