@@ -9,6 +9,7 @@ import Profil from "../Profil/Profil";
 import DodajProfil from "../Profil/DodajProfil";
 import SpremeniProfil from "../Profil/SpremeniProfil";
 import IzbrisiProfil from "../Profil/IzbrisiProfil";
+import Iskanje from "../Profil/iskanje/Iskanje";
 
 export default function Routing(){
     return(
@@ -22,6 +23,7 @@ export default function Routing(){
             <Route path="/profili/dodaj" element={<DodajProfil />}/>
             <Route path="/profili/spremeni" element={<SpremeniProfil />}/>
             <Route path="/profili/izbrisi" element={<IzbrisiProfil />}/>
+            <Route path="/iskanje" element={<Iskanje />}/>
         </Routes>
     );
 }
