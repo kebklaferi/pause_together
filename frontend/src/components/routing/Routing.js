@@ -10,6 +10,8 @@ import DodajProfil from "../Profil/DodajProfil";
 import SpremeniProfil from "../Profil/SpremeniProfil";
 import IzbrisiProfil from "../Profil/IzbrisiProfil";
 import Iskanje from "../Profil/iskanje/Iskanje";
+import Registracija from "../Profil/ProjektniDel/Registracija";
+import Prijava from "../Profil/ProjektniDel/Prijava";
 
 export default function Routing(){
     return(
@@ -24,6 +26,8 @@ export default function Routing(){
             <Route path="/profili/spremeni" element={<SpremeniProfil />}/>
             <Route path="/profili/izbrisi" element={<IzbrisiProfil />}/>
             <Route path="/iskanje" element={<Iskanje />}/>
+            <Route path="/registriraj" element={<Registracija />}/>
+            <Route path="/prijava" element={<Prijava />}/>
         </Routes>
     );
 }

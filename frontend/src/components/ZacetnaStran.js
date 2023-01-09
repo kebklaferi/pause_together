@@ -10,6 +10,8 @@ const ZacetnaStran = () => {
             <Button variant="contained" onClick={() => navigate("/uporabniki")}>Uporabniki</Button>
             <Button variant="contained" onClick={() => navigate("/profili")}>Profili</Button>
             <Button variant="contained" onClick={() => navigate("/iskanje")}>Iskanje</Button>
+            <Button variant="contained" onClick={() => navigate("/registriraj")}>Registracija</Button>
+            <Button variant="contained" onClick={() => navigate("/prijava")}>Prijava</Button>
         </>
     );
 }
